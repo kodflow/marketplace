@@ -27,3 +27,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: kodflow/post-commit@main
+        with:
+          # Every commit here must carry the owning GitHub account, not a
+          # personal identity. Same value in all three orgs: one human
+          # commits across the fleet, so the stub stays identical everywhere.
+          authors: kodflow
