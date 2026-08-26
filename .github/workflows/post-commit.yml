@@ -17,6 +17,11 @@ on:
     types: [opened, synchronize, reopened]
   push:
     branches: [main, master]
+  # On demand: the gate reads the whole history, so its verdict can change
+  # without this repository changing — a new rule lands in kodflow/post-commit,
+  # or the history is rewritten under it. Without this you cannot ask a quiet
+  # repository whether it is still clean; you have to push something to find out.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,7 +33,8 @@ jobs:
     steps:
       - uses: kodflow/post-commit@main
         with:
-          # Every commit here must carry the owning GitHub account, not a
-          # personal identity. Same value in all three orgs: one human
-          # commits across the fleet, so the stub stays identical everywhere.
+          # Every commit in this repository must carry the owning GitHub
+          # account, not a personal identity. Same value in all three orgs
+          # on purpose — one human commits across the whole fleet, so the
+          # stub stays byte-identical everywhere.
           authors: kodflow
