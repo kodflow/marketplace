@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "3gpp-expert",
+  "displayName": "Kodflow 3GPP Expert",
+  "description": "Skill de connaissance 3GPP/telecom (2G-6G, releases, protocoles, architecture) avec recuperation et cache local des specs ETSI",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "3gpp",
+    "telecom",
+    "5g",
+    "standards"
+  ]
+}

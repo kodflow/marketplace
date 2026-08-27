@@ -1,0 +1,67 @@
+{
+  "$comment": "Catalogue des binaires externes de l'outillage Kodflow. Chaque entree declare LA source officielle du binaire : le moteur (binaries.py) refuse d'installer depuis toute autre origine. Ajouter un binaire = ajouter une entree ici, rien d'autre.",
+  "binaries": [
+    {
+      "name": "rtk",
+      "description": "Proxy CLI qui compresse la sortie des commandes avant le contexte LLM (60-90 % de tokens en moins)",
+      "official_source": "https://github.com/rtk-ai/rtk",
+      "license": "MIT",
+      "version_cmd": [
+        "rtk",
+        "--version"
+      ],
+      "latest": {
+        "kind": "github-release",
+        "repo": "rtk-ai/rtk"
+      },
+      "install": {
+        "kind": "github-release-binary",
+        "repo": "rtk-ai/rtk",
+        "assets": {
+          "x86_64-linux": "rtk-x86_64-unknown-linux-musl.tar.gz",
+          "aarch64-linux": "rtk-aarch64-unknown-linux-gnu.tar.gz",
+          "x86_64-darwin": "rtk-x86_64-apple-darwin.tar.gz",
+          "aarch64-darwin": "rtk-aarch64-apple-darwin.tar.gz"
+        },
+        "checksums_asset": "checksums.txt",
+        "bin_name": "rtk"
+      }
+    },
+    {
+      "name": "gopls",
+      "description": "Serveur de langage Go officiel, requis par le plugin gopls-lsp",
+      "official_source": "https://pkg.go.dev/golang.org/x/tools/gopls",
+      "license": "BSD-3-Clause",
+      "version_cmd": [
+        "gopls",
+        "version"
+      ],
+      "latest": {
+        "kind": "go-module",
+        "module": "golang.org/x/tools/gopls"
+      },
+      "install": {
+        "kind": "go-install",
+        "package": "golang.org/x/tools/gopls"
+      }
+    },
+    {
+      "name": "golangci-lint",
+      "description": "Meta-linter Go utilise par les chaines de qualite des projets Go Kodflow",
+      "official_source": "https://github.com/golangci/golangci-lint",
+      "license": "GPL-3.0",
+      "version_cmd": [
+        "golangci-lint",
+        "version"
+      ],
+      "latest": {
+        "kind": "github-release",
+        "repo": "golangci/golangci-lint"
+      },
+      "install": {
+        "kind": "go-install",
+        "package": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+      }
+    }
+  ]
+}

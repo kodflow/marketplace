@@ -1,0 +1,54 @@
+# CI de la marketplace Claude Code.
+#
+# Trois niveaux de contrôle :
+#   - catalogue    : cohérence du catalogue et de l'arborescence (aucune dépendance réseau)
+#   - plugin-tests : suites de tests embarquées par les plugins
+#   - schema       : validation par `claude plugin validate`
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: ./scripts/validate.sh
+
+  plugin-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Suites de tests des plugins
+        run: |
+          for suite in plugins/*/tests/run-tests.sh; do
+            [ -x "$suite" ] || continue
+            echo "--- $suite"
+            bash "$suite"
+          done
+
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: claude plugin validate
+        run: |
+          claude plugin validate .
+          for dir in plugins/*/ templates/*/; do
+            [ -f "$dir/.claude-plugin/plugin.json" ] || continue
+            echo "--- $dir"
+            claude plugin validate "$dir"
+          done

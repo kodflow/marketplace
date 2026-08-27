@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "go-review-panel",
+  "displayName": "Kodflow Go Review Panel",
+  "description": "Panel de revue de merge request Go : trois agents (idiomatique/sécurité, perf/résilience, clarté domaine) et une skill qui les orchestre en threads GitLab prêts à coller",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "go",
+    "review",
+    "merge-request",
+    "qualite"
+  ]
+}

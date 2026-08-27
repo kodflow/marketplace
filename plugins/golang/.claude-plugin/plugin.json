@@ -1,34 +1,27 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "golang",
-  "version": "3.0.0",
-  "description": "Advanced Go development plugin with 100% test coverage reference implementation, complete Go 1.25 features, 165 comprehensive tests, and strict quality standards",
+  "displayName": "Go",
+  "description": "Go development plugin: standards enforcement, review and build commands, and four specialist agents (code review, DDD architecture, Go expertise, performance)",
   "author": {
     "name": "Kodflow",
     "email": "contact@making.codes",
     "url": "https://github.com/kodflow"
   },
-  "homepage": "https://github.com/kodflow/.repository/tree/main/plugins/golang",
-  "repository": "https://github.com/kodflow/.repository",
+  "homepage": "https://github.com/kodflow/marketplace/tree/main/plugins/golang",
+  "repository": "https://github.com/kodflow/marketplace",
   "license": "MIT",
   "keywords": [
     "golang",
     "go",
-    "go1.23",
-    "go1.25",
     "development",
     "testing",
     "linting",
     "build",
     "performance",
     "concurrency",
-    "sync-pool",
-    "sync-map",
-    "atomic",
-    "iterators",
     "ddd",
     "code-review",
-    "benchmarks",
-    "reference-implementation",
     "mcp"
   ]
 }

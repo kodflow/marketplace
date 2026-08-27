@@ -1,11 +1,129 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "kodflow",
+  "description": "Collection of development plugins with strict standards and best practices enforcement",
   "owner": {
-    "name": "kodflow",
+    "name": "Kodflow",
     "url": "https://github.com/kodflow"
   },
-  "description": "Collection of development plugins with strict standards and best practices enforcement",
-  "version": "1.0.0",
-  "repository": "https://github.com/kodflow/.repository",
-  "plugins": []
+  "plugins": [
+    {
+      "name": "golang",
+      "source": "./plugins/golang",
+      "description": "Go development plugin: standards enforcement, review and build commands, and four specialist agents (code review, DDD architecture, Go expertise, performance)",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "golang",
+        "go",
+        "development",
+        "testing",
+        "linting",
+        "code-review"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "devkit",
+      "source": "./plugins/devkit",
+      "description": "Outillage de la marketplace Kodflow : scaffolding d'un nouveau plugin, validation et publication",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "marketplace",
+        "plugin",
+        "scaffolding"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "commit-guard",
+      "source": "./plugins/commit-guard",
+      "description": "Impose la convention de commit Kodflow et refuse les messages portant une trace de redaction par IA",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "git",
+        "commit",
+        "hook",
+        "qualite"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "go-review-panel",
+      "source": "./plugins/go-review-panel",
+      "description": "Panel de revue de merge request Go : trois agents (idiomatique/securite, perf/resilience, clarte domaine) et une skill qui les orchestre en threads GitLab prets a coller",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "go",
+        "review",
+        "merge-request",
+        "qualite"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "issue-workflow",
+      "source": "./plugins/issue-workflow",
+      "description": "Workflow d'issue GitLab de bout en bout : redaction cadree, implementation pas a pas avec gate de commit, publication par curl",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "gitlab",
+        "issue",
+        "workflow",
+        "implementation"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "3gpp-expert",
+      "source": "./plugins/3gpp-expert",
+      "description": "Skill de connaissance 3GPP/telecom (2G-6G, releases, protocoles, architecture) avec recuperation et cache local des specs ETSI",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "3gpp",
+        "telecom",
+        "5g",
+        "standards"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    },
+    {
+      "name": "project",
+      "source": "./plugins/project",
+      "description": "Initialisation de l'outillage Claude Code d'un projet Kodflow : analyse, installation des plugins et binaires apres validation, configuration projet propagee a l'equipe",
+      "author": {
+        "name": "Kodflow"
+      },
+      "category": "development",
+      "keywords": [
+        "kodflow",
+        "init",
+        "setup",
+        "outillage"
+      ],
+      "repository": "https://github.com/kodflow/marketplace"
+    }
+  ]
 }
