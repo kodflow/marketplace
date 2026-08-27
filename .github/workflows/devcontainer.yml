@@ -53,7 +53,12 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
-            type=sha,prefix={{branch}}-
+            # {{branch}} is empty on a pull_request event, which would render
+            # the invalid tag "-<sha>" and fail the build. On a pull request
+            # type=ref,event=pr already yields pr-<n>, so the sha tag only
+            # needs the branch prefix outside of pull requests.
+            type=sha,prefix={{branch}}-,enable=${{ github.event_name != 'pull_request' }}
+            type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=raw,value=devcontainer,enable={{is_default_branch}}
             type=raw,value=latest,enable={{is_default_branch}}
 
