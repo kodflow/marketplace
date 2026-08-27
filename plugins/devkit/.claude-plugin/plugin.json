@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "devkit",
+  "displayName": "Kodflow DevKit",
+  "description": "Outillage de la marketplace Kodflow : scaffolding d'un nouveau plugin, validation et publication",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "marketplace",
+    "plugin",
+    "scaffolding"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "issue-workflow",
+  "displayName": "Kodflow Issue Workflow",
+  "description": "Workflow d'issue GitLab de bout en bout : rédaction cadrée, implémentation pas à pas avec gate de commit, publication par curl",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "gitlab",
+    "issue",
+    "workflow",
+    "implementation"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "commit-guard",
+  "displayName": "Kodflow Commit Guard",
+  "description": "Impose la convention de commit Kodflow et refuse les messages portant une trace de redaction par IA",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "git",
+    "commit",
+    "hook",
+    "qualite"
+  ]
+}

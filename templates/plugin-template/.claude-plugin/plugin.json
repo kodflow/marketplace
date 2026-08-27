@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "plugin-template",
+  "displayName": "Plugin Template",
+  "description": "Squelette de plugin Kodflow : a copier dans plugins/<nom> puis adapter",
+  "author": {
+    "name": "Kodflow"
+  },
+  "repository": "https://github.com/kodflow/marketplace",
+  "keywords": [
+    "kodflow",
+    "template"
+  ]
+}

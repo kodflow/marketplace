@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "kodflow": {
+      "source": {
+        "source": "github",
+        "repo": "kodflow/marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "devkit@kodflow": true
+  }
+}

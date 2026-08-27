@@ -198,3 +198,13 @@ docker-compose.override.yml
 !.gitkeep
 /.env
 .env
+
+# --- Marketplace Claude Code ---
+# Les plugins declarent leur serveur MCP dans un .mcp.json versionne :
+# il fait partie du plugin et doit echapper a la regle generique ci-dessus.
+!plugins/*/.mcp.json
+
+# Reglages Claude Code locaux (non versionnes)
+.claude/settings.local.json
+.claude/logs/
+.opencode
