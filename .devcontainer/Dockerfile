@@ -47,14 +47,32 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install AWS CLI v2 and golangci-lint in parallel (rarely changes - good for cache)
-RUN curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" & \
-    curl -fsSL "https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh" -o "/tmp/golangci-install.sh" & \
-    wait && \
-    unzip /tmp/awscliv2.zip -d /tmp && \
-    /tmp/aws/install && \
-    sh /tmp/golangci-install.sh -b /usr/local/bin && \
-    rm -rf /tmp/awscliv2.zip /tmp/aws /tmp/golangci-install.sh
+# Install AWS CLI v2 and golangci-lint (rarely changes - good for cache)
+# Both are picked for the platform being built: the arm64 image used to get
+# the x86_64 AWS CLI. golangci-lint is a pinned release checked against its
+# own sha256: install.sh from master now also matches the .sbom.json line of
+# the checksums file and rejects a sound archive. To move it, take both sums
+# from golangci-lint-<version>-checksums.txt (the .tar.gz lines only).
+ARG TARGETARCH
+ARG GOLANGCI_LINT_VERSION=2.14.0
+ARG GOLANGCI_LINT_SHA256_AMD64=ab90aeb7b066f92a33415b638a50fe5344bbb75a0d32ad30cc248d88f81032ab
+ARG GOLANGCI_LINT_SHA256_ARM64=ee7ec5f3453d15ddf106fae5a4d6c71737712348a979d1fe9cd52ec7ea299bae
+RUN set -eu; \
+    case "${TARGETARCH}" in \
+        amd64) aws_arch=x86_64; gl_sum="${GOLANGCI_LINT_SHA256_AMD64}" ;; \
+        arm64) aws_arch=aarch64; gl_sum="${GOLANGCI_LINT_SHA256_ARM64}" ;; \
+        *) echo "unsupported TARGETARCH: ${TARGETARCH}" >&2; exit 1 ;; \
+    esac; \
+    gl="golangci-lint-${GOLANGCI_LINT_VERSION}-linux-${TARGETARCH}"; \
+    curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-${aws_arch}.zip" -o /tmp/awscliv2.zip & \
+    curl -fsSL "https://github.com/golangci/golangci-lint/releases/download/v${GOLANGCI_LINT_VERSION}/${gl}.tar.gz" -o /tmp/golangci-lint.tar.gz & \
+    wait; \
+    echo "${gl_sum}  /tmp/golangci-lint.tar.gz" | sha256sum -c -; \
+    tar -xzf /tmp/golangci-lint.tar.gz -C /tmp; \
+    install -m 0755 "/tmp/${gl}/golangci-lint" /usr/local/bin/golangci-lint; \
+    unzip -q /tmp/awscliv2.zip -d /tmp; \
+    /tmp/aws/install; \
+    rm -rf /tmp/awscliv2.zip /tmp/aws /tmp/golangci-lint.tar.gz "/tmp/${gl}"
 
 # Switch to vscode user
 USER vscode
