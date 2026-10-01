@@ -189,10 +189,8 @@ docker-compose.override.yml
 *.db-journal
 
 # AI/IDE specific
-.github/instructions/codacy.instructions.md
 .cursor/
 .windsurf/
-.codacy/
 
 # Keep empty directories
 !.gitkeep

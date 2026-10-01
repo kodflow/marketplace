@@ -7,14 +7,6 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
       },
       "description": "GitHub MCP server for repository operations, issues, PRs, and code review"
-    },
-    "codacy": {
-      "command": "npx",
-      "args": ["-y", "@codacy/codacy-mcp@latest"],
-      "env": {
-        "CODACY_ACCOUNT_TOKEN": "${CODACY_API_TOKEN}"
-      },
-      "description": "Codacy MCP server for code quality analysis and security scanning"
     }
   },
   "requiredEnvVars": [
@@ -22,11 +14,6 @@
       "name": "GITHUB_TOKEN",
       "description": "GitHub Personal Access Token for API access",
       "url": "https://github.com/settings/tokens"
-    },
-    {
-      "name": "CODACY_API_TOKEN",
-      "description": "Codacy API Token for quality analysis",
-      "url": "https://app.codacy.com/account/apiTokens"
     }
   ]
 }

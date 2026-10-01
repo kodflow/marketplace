@@ -561,15 +561,6 @@ Use Makefile commands for:
 - `make lint` - Linting
 - `make bench` - Benchmarking
 
-### With Codacy
-
-Validate against Codacy metrics:
-
-- Code quality grade
-- Issues count
-- Coverage metrics
-- Security scanning
-
 ### With Git
 
 Track task progress:
