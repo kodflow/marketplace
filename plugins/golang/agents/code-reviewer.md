@@ -208,8 +208,6 @@ go test -race -cover ./... || exit 1
 
 ### 4. Code Quality Monitoring
 
-**Target:** A-grade on Codacy
-
 **Automated checks:**
 - Code complexity
 - Code duplication

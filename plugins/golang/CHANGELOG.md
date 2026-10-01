@@ -598,7 +598,7 @@ All performance claims are **proven with benchmarks**:
 - Code review standards
 - Performance optimization guidelines
 - DDD architecture enforcement
-- MCP integrations (GitHub, Codacy)
+- MCP integrations (GitHub)
 
 ---
 

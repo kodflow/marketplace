@@ -950,7 +950,6 @@ svc := property.NewService(property.Config{...})
 - [ ] `go test -race ./...` - race detector must pass
 - [ ] `go test -cover ./...` - **100% coverage required**
 - [ ] **`gocyclo -over 9 .`** - should return zero results
-- [ ] Codacy grade A required
 - [ ] Code duplication max 3%
 - [ ] **Lines per function**: use `go-loc` or manual check, max 35 lines
 - [ ] Run all checks in CI/CD pipeline before merge
@@ -1428,9 +1427,6 @@ gosec ./...                           # zero vulnerabilities
 go test -race ./...                   # Race detector should pass
 go test -cover -coverprofile=coverage.out ./...
 go tool cover -func=coverage.out      # 100% coverage required
-
-# Step 5: External Quality
-# Codacy analysis (via CI/CD or manual check)
 ```
 
 **❌ If ANY automated check fails → Flagged immediately**
